@@ -1,0 +1,13 @@
+Enunciado de CRUD:
+Se quiere tener almacenada la información de todas las personas que se presentan al cargo de viceAsistente Jr
+en la empresa XYZ, estás personas despues de ser entrevistabas y dar sus datos personales básico 
+asi como sus estudios y cursos específicos que han hecho pasan a la prueba tecnica donde el videPrecidente Jr
+les da una calificación respecto a su desempeño.
+Los datos obtenidos de una persona serían:
+-Nombre
+-Apellidos
+-Identificacion
+-Edad
+-Estudios/cursos
+-Puntaje
+El programa debe permiter agregar una nueva persona, actualizar datos, eliminar registros y ver el listado de personas.
