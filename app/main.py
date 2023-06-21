@@ -46,11 +46,28 @@ def sub_menu():
     
     if opcion == 1: crud.agregar_persona(personas); sub_menu()
     elif opcion == 2: print('2')
-    elif opcion == 3: crud.listar_personas(personas); sub_menu()
+    elif opcion == 3: ver_personas()
     elif opcion == 4: print('4')
     elif opcion == 5: menu()
     # return opcion
 
+#funcion para menu de ver listas
+def ver_personas():
+    while True:
+        try: 
+            print('\n* LISTAR PERSONAS *')
+            print('1. Ver lista de todas las personas')
+            print('2. Buscar persona por identificacion')
+            print('3. Salir')
+            opcion = int(input('Elige una opcion: '))
+            if opcion in [1,2]:
+                break
+        except ValueError as error:
+            print('Error critico: ', error)
+    if opcion == 1: crud.listar_personas(personas); sub_menu()
+    elif opcion == 2: crud.buscar_persona(personas); sub_menu()
+    elif opcion == 3: sub_menu()
+    return 0
 
 if __name__ == '__main__':
     menu()

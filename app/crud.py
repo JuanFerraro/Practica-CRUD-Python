@@ -52,7 +52,7 @@ def agregar_persona(personas: list):
             print('Error critico: ',error)
 
 
-# Funcion para listar personas
+# Funcion para listar personas:
 def listar_personas(personas: list):
     print('\n* LISTADO DE PERSONAS *')
     for persona in personas:
@@ -63,3 +63,27 @@ def listar_personas(personas: list):
         print('Estudios: ', persona['Estudios/Cursos'])
         print('Puntaje: ', persona['Puntaje'])
         print('*' * 25)
+
+# Funcion para buscar persona por id:
+def buscar_persona(personas: list):
+    print('\n* BUSCAR PERSONA POR ID *')
+    while True:
+        try:
+            id_buscar = input('Ingrese ID de la persona: ')
+            if len(id_buscar) >= 7 and len(id_buscar) <= 10:
+                break
+        except ValueError as error:
+            print('Error critico: ', error)
+
+    encontrado = next((persona for persona in personas if persona['Identificacion'] == id_buscar), None)
+    if encontrado is not None:
+        print('Persona encontrada: ')
+        print('Nombre: ', encontrado['Nombre'])
+        print('Apellido: ', encontrado['Apellido'])
+        print('ID: ', encontrado['Identificacion'])
+        print('Edad: ', encontrado['Edad'])
+        print('Estudios: ', encontrado['Estudios/Cursos'])
+        print('Puntaje: ', encontrado['Puntaje'])
+        print('*' * 25)
+    else:
+        print('Persona no encontrada.')
