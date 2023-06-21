@@ -112,3 +112,32 @@ def eliminar_persona(personas: list):
     else:
         print('Persona no encontrada')   
             
+# Funcion para actualizar datos de una persona:
+def actualizar_persona(personas: list):
+    while True:
+        print('\n* ACTUALIZAR PERSONA *')
+        persona_eliminar = input('Ingrese la ID de la persona a actualizar: ')
+        if len(persona_eliminar) >= 7 and len(persona_eliminar) <= 10:
+            break
+    encontrado = next((persona for persona in personas if persona['Identificacion'] == persona_eliminar), None)
+    if encontrado != None:
+        print('¿Qué campo va a actualizar?')
+        print('Nombre - Apellidos - Identificación - Edad - Estudios - Puntaje')
+        opcion = input('Ingrese el nombre del campo: ')
+        opcion = opcion.capitalize()
+        for i, persona in enumerate(personas):
+            if persona['Identificacion'] == persona_eliminar:
+                valor = input('Ingrese el valor: ')
+                if opcion == 'Edad':
+                    int(valor)
+                elif opcion == 'Puntaje':
+                    float(valor)
+                elif opcion == 'Estudios':
+                    opcion = 'Estudios/Cursos'
+                elif opcion == 'ID' or opcion == 'Id':
+                    opcion = 'Identificacion'
+                persona[opcion] = valor
+                personas[i] = persona
+                print('Dato actualizado con exito.')
+    else:
+        print('Persona no encontrada') 

@@ -53,7 +53,7 @@ def sub_menu():
             print(error)
     
     if opcion == 1: crud.agregar_persona(personas); sub_menu()
-    elif opcion == 2: print('2')
+    elif opcion == 2: crud.actualizar_persona(personas); sub_menu()
     elif opcion == 3: ver_personas()
     elif opcion == 4: crud.eliminar_persona(personas); sub_menu()
     elif opcion == 5: menu()
