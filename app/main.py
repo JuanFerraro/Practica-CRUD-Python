@@ -1,7 +1,16 @@
 import crud
 
 #Variables globales
-personas = []
+personas = [
+    {
+        'Nombre': 'Juan',
+        'Apellido': 'Barrios',
+        'Identificacion': '1022036041',
+        'Edad': 26,
+        'Estudios/Cursos': 'Fundamentos de Python y mas',
+        'Puntaje': 7.8
+    }
+]
 
 #Función para Menú principal:
 def menu():
@@ -26,20 +35,20 @@ def sub_menu():
             print('-' * 12, ' SUB MENU ', '-' * 12)
             print('1. Añadir nueva persona')
             print('2. Actualizar datos de persona')
-            print('3. Ver datos de persona')
-            print('4. Elimar registros de una persona')
+            print('3. Ver lista de personas')
+            print('4. Eliminar registros de una persona')
             print('5. Salir')
             opcion = int(input('Elige una opción: '))
-            if opcion in [1, 2, 3, 4]:
+            if opcion in [1, 2, 3, 4, 5]:
                 break
         except ValueError as error:
             print(error)
     
-    if opcion == 1: datos = crud.agregar_persona(personas); personas.append(datos)
-    elif opcion == 2: crud.listar_personas(personas)
-    elif opcion == 3: print('3')
+    if opcion == 1: crud.agregar_persona(personas); sub_menu()
+    elif opcion == 2: print('2')
+    elif opcion == 3: crud.listar_personas(personas); sub_menu()
     elif opcion == 4: print('4')
-    else: menu()
+    elif opcion == 5: menu()
     # return opcion
 
 

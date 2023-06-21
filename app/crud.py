@@ -1,6 +1,6 @@
 
 
-#Funcion para listar las personas:
+#Funcion para agregar nueva persona
 def agregar_persona(personas: list):
     data = {}
     print("\n** REGISTRO NUEVA PERSONA **")
@@ -17,7 +17,7 @@ def agregar_persona(personas: list):
                 if len(id) < 7 or len(id) > 10:
                     print('Dato incorrecto, reingreselo.')
                 else:
-                    data['Id'] = id
+                    data['Identificacion'] = id
                     break
             
             while True:
@@ -29,11 +29,11 @@ def agregar_persona(personas: list):
                     break
             
             while True:
-                estudios = input('Estudios / Cursos: ')
+                estudios = input('Estudios/Cursos: ')
                 if len(estudios) < 7:
                     print('No valido, reingrese los datos.')
                 else:
-                    data['Estudios'] = estudios
+                    data['Estudios/Cursos'] = estudios
                     break
             
             while True:
@@ -50,11 +50,16 @@ def agregar_persona(personas: list):
             print('Error critico: ',error)
         except TypeError as error:
             print('Error critico: ',error)
-    return data
 
+
+# Funcion para listar personas
 def listar_personas(personas: list):
     print('\n* LISTADO DE PERSONAS *')
     for persona in personas:
         print('Nombre: ', persona['Nombre'])
         print('Apellido: ', persona['Apellido'])
-    return 0
+        print('ID: ', persona['Identificacion'])
+        print('Edad: ', persona['Edad'])
+        print('Estudios: ', persona['Estudios/Cursos'])
+        print('Puntaje: ', persona['Puntaje'])
+        print('*' * 25)
