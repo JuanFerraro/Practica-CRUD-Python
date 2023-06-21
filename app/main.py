@@ -9,6 +9,14 @@ personas = [
         'Edad': 26,
         'Estudios/Cursos': 'Fundamentos de Python y mas',
         'Puntaje': 7.8
+    },
+    {
+        'Nombre': 'Sebastian',
+        'Apellido': 'Ferraro',
+        'Identificacion': '0704971098',
+        'Edad': 26,
+        'Estudios/Cursos': 'Fundamentos de JS',
+        'Puntaje': 7.8
     }
 ]
 
@@ -47,7 +55,7 @@ def sub_menu():
     if opcion == 1: crud.agregar_persona(personas); sub_menu()
     elif opcion == 2: print('2')
     elif opcion == 3: ver_personas()
-    elif opcion == 4: print('4')
+    elif opcion == 4: crud.eliminar_persona(personas); sub_menu()
     elif opcion == 5: menu()
     # return opcion
 
@@ -67,7 +75,7 @@ def ver_personas():
     if opcion == 1: crud.listar_personas(personas); sub_menu()
     elif opcion == 2: crud.buscar_persona(personas); sub_menu()
     elif opcion == 3: sub_menu()
-    return 0
+    
 
 if __name__ == '__main__':
     menu()

@@ -68,16 +68,13 @@ def listar_personas(personas: list):
 def buscar_persona(personas: list):
     print('\n* BUSCAR PERSONA POR ID *')
     while True:
-        try:
-            id_buscar = input('Ingrese ID de la persona: ')
-            if len(id_buscar) >= 7 and len(id_buscar) <= 10:
-                break
-        except ValueError as error:
-            print('Error critico: ', error)
+        id_buscar = input('Ingrese ID de la persona: ')
+        if len(id_buscar) >= 7 and len(id_buscar) <= 10:
+            break
 
     encontrado = next((persona for persona in personas if persona['Identificacion'] == id_buscar), None)
     if encontrado is not None:
-        print('Persona encontrada: ')
+        print('\nPersona encontrada: ')
         print('Nombre: ', encontrado['Nombre'])
         print('Apellido: ', encontrado['Apellido'])
         print('ID: ', encontrado['Identificacion'])
@@ -86,4 +83,32 @@ def buscar_persona(personas: list):
         print('Puntaje: ', encontrado['Puntaje'])
         print('*' * 25)
     else:
-        print('Persona no encontrada.')
+        print('Persona no encontrada.\n')
+
+# Funcion para eliminar una persona:
+def eliminar_persona(personas: list):
+    while True:
+        print('\n* ELIMINAR PERSONA *')
+        persona_eliminar = input('Ingrese la ID de la persona a eliminar: ')
+        if len(persona_eliminar) >= 7 and len(persona_eliminar) <= 10:
+            break
+    
+    encontrado = next((persona for persona in personas if persona['Identificacion'] == persona_eliminar), None)
+    if encontrado is not None:
+        while True:
+            try:
+                print(f'Seguro que quieres eliminar a {encontrado["Nombre"]} {encontrado["Apellido"]} del registro?')
+                print('1.Si\n2.No')
+                opcion = int(input('Elige una opcion: '))
+                if opcion in [1,2]:
+                    break
+            except ValueError as error:
+                print('Error critico: ', error)
+        if opcion == 1:
+            for persona in personas: 
+                if persona_eliminar == persona['Identificacion']:
+                    personas.remove(persona)
+                    print('Persona eliminada correctamente. \n')
+    else:
+        print('Persona no encontrada')   
+            
