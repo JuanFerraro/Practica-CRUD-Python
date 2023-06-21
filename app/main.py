@@ -1,3 +1,7 @@
+import crud
+
+#Variables globales
+personas = []
 
 #Función para Menú principal:
 def menu():
@@ -24,11 +28,18 @@ def sub_menu():
             print('2. Actualizar datos de persona')
             print('3. Ver datos de persona')
             print('4. Elimar registros de una persona')
+            print('5. Salir')
             opcion = int(input('Elige una opción: '))
             if opcion in [1, 2, 3, 4]:
                 break
         except ValueError as error:
             print(error)
+    
+    if opcion == 1: datos = crud.agregar_persona(personas); personas.append(datos)
+    elif opcion == 2: crud.listar_personas(personas)
+    elif opcion == 3: print('3')
+    elif opcion == 4: print('4')
+    else: menu()
     # return opcion
 
 
