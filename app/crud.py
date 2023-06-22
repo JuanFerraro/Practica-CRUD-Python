@@ -63,7 +63,6 @@ def agregar_persona(personas: list):
         except TypeError as error:
             print('Error critico: ',error)
 
-
 # Funcion para listar personas:
 def listar_personas(personas: list):
     print('\n* LISTADO DE PERSONAS *')
@@ -167,3 +166,8 @@ def actualizar_persona(personas: list):
                 print('Error critico', error)
     else:
         print('Persona no encontrada') 
+
+# Funcion para crear los valores y la gráfica de puntajes:
+def grafica_puntajes(personas: list):
+    people, puntajes = utils.obtener_datos(personas)
+    utils.grafico_barras(people, puntajes)
