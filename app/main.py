@@ -84,5 +84,6 @@ def ver_personas():
     elif opcion == 2: crud.buscar_persona(personas); sub_menu()
     elif opcion == 3: sub_menu()  
 
+# Principal -- Principal -- Principal
 if __name__ == '__main__':
     menu()

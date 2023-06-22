@@ -82,7 +82,7 @@ def buscar_persona(personas: list):
         id_buscar = input('Ingrese ID de la persona: ')
         if len(id_buscar) >= 7 and len(id_buscar) <= 10:
             break
-
+    # next() para buscar y devolver valor nulo
     encontrado = next((persona for persona in personas if persona['Identificacion'] == id_buscar), None)
     if encontrado is not None:
         print('\nPersona encontrada: ')
@@ -118,7 +118,7 @@ def eliminar_persona(personas: list):
         if opcion == 1:
             for persona in personas: 
                 if persona_eliminar == persona['Identificacion']:
-                    personas.remove(persona)
+                    personas.remove(persona) # Remuevo el diccionario de la lista
                     print('Persona eliminada correctamente. \n')
     else:
         print('Persona no encontrada')   
@@ -130,7 +130,7 @@ def actualizar_persona(personas: list):
         persona_eliminar = input('Ingrese la ID de la persona a actualizar: ')
         if len(persona_eliminar) >= 7 and len(persona_eliminar) <= 10:
             break
-    encontrado = next((persona for persona in personas if persona['Identificacion'] == persona_eliminar), None)
+    encontrado = next((persona for persona in personas if persona['Identificacion'] == persona_eliminar), None) # con next() recorro personas y sino se encuentra asigna None.
     if encontrado != None:
         print('¿Qué campo va a actualizar?')
         print('Nombre - Apellidos - Identificación - Edad - Estudios - Puntaje')
@@ -168,6 +168,6 @@ def actualizar_persona(personas: list):
         print('Persona no encontrada') 
 
 # Funcion para crear los valores y la gráfica de puntajes:
-def grafica_puntajes(personas: list):
+def grafica_puntajes(personas: list): #Utilizo las 2 funciones en utils.
     people, puntajes = utils.obtener_datos(personas)
     utils.grafico_barras(people, puntajes)
