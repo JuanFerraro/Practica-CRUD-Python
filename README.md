@@ -1,12 +1,11 @@
-# CRUD Básico con Python
 
-## CRUD Básico : 
-- **Realizado como practica de los terminos y conocimientos aprendidos de los 2 primeros cursos de Python en Platzi, se parte de un enunciado dado y se procede con la realización de funciones para la realización de este via terminal.**
+# Basic CRUD with Python
+## Basic CRUD :
+*Carried out as a practice of the terms and knowledge learned from the first 2 Python courses at Platzi, it starts from a given statement and proceeds with the execution of functions for the realization of this terminal path.*
 
-
-### Contenido:
-- *Funciones*
-- *Manejo de listas y diccionarios*
-- *Ejecucion por terminal*
-- *Grafica con matplotlib*
-- *Manejo de errores*
+## Content:
+- *Functions*
+- *Management of lists and dictionaries*
+- *Execution by terminal*
+- *Plot with matplotlib*
+- *Error handling*
